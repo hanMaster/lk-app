@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { observer } from 'mobx-react';
+import drawerStore from '../store/drawer';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -77,7 +79,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function AppHeader() {
+const AppHeader = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -168,6 +170,7 @@ export default function AppHeader() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={() => drawerStore.toggleDrawer()}
           >
             <MenuIcon />
           </IconButton>
@@ -227,4 +230,6 @@ export default function AppHeader() {
       {renderMenu}
     </div>
   );
-}
+};
+
+export default observer(AppHeader);

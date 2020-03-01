@@ -1,14 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import ListIcon from '@material-ui/icons/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import ArchiveIcon from '@material-ui/icons/Archive';
+import { observer } from 'mobx-react';
+import drawerStore from '../store/drawer';
 
 const useStyles = makeStyles({
   list: {
@@ -19,47 +19,50 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer({ isOpen }) {
+const TemporaryDrawer = () => {
   const classes = useStyles();
-  const [state, setState] = React.useState(false);
-
-  const toggleDrawer = () => {
-    setState(!state);
-  };
 
   const sideList = () => (
-    <div className={classes.list} role="presentation" onClick={toggleDrawer}>
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={() => drawerStore.toggleDrawer()}
+    >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem
+          button
+          key="Active orders"
+          onClick={() => drawerStore.selectPage('activeList')}
+        >
+          <ListItemIcon>
+            <ListIcon />
+          </ListItemIcon>
+          <ListItemText primary="Active orders" />
+        </ListItem>
+        <ListItem
+          button
+          key="Archived orders"
+          onClick={() => drawerStore.selectPage('archiveList')}
+        >
+          <ListItemIcon>
+            <ArchiveIcon />
+          </ListItemIcon>
+          <ListItemText primary="Archived orders" />
+        </ListItem>
       </List>
     </div>
   );
 
   return (
     <div>
-      <Button onClick={toggleDrawer}>Open Left</Button>
-
-      <Drawer open={state} onClose={toggleDrawer}>
+      <Drawer
+        open={drawerStore.isOpen}
+        onClose={() => drawerStore.toggleDrawer()}
+      >
         {sideList()}
       </Drawer>
     </div>
   );
-}
+};
+
+export default observer(TemporaryDrawer);
