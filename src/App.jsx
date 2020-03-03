@@ -8,7 +8,8 @@ import Home from './pages/home';
 import ActiveList from './pages/activeList';
 import ArchiveList from './pages/archiveList';
 import Order from './pages/order';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/notFound';
+import NewOrder from './pages/newOrder';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/active" exact component={ActiveList} />
         <Route path="/archive" exact component={ArchiveList} />
         <Route path="/order/:id" component={Order} />
+        <Route path="/create-new-order" component={NewOrder} />
         <Route component={NotFound} />
       </Switch>
     </div>

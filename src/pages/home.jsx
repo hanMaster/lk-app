@@ -13,6 +13,11 @@ const Home = () => {
           Active orders
         </Button>
       </Link>
+      <Link to="/create-new-order">
+        <Button variant="contained" color="secondary">
+          Create new order
+        </Button>
+      </Link>
     </div>
   );
 };
