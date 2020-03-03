@@ -20,8 +20,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/active" exact component={ActiveList} />
         <Route path="/archive" exact component={ArchiveList} />
-        <Route path="/order/:id" component={Order} />
-        <Route path="/create-new-order" component={NewOrder} />
+        <Route path="/order/:id" exact component={Order} />
+        <Route path="/create-new-order" exact component={NewOrder} />
         <Route component={NotFound} />
       </Switch>
     </div>

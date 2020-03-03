@@ -19,7 +19,11 @@ const MyTextField = ({ label, ...props }) => {
 };
 
 const validationSchema = yup.object({
-  firstName: yup
+  bank: yup
+    .string()
+    .required()
+    .min(2),
+  bankAddress: yup
     .string()
     .required()
     .min(2),

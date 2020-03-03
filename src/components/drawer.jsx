@@ -7,6 +7,7 @@ import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ArchiveIcon from '@material-ui/icons/Archive';
+import HomeIcon from '@material-ui/icons/Home';
 import { observer } from 'mobx-react';
 import drawerStore from '../store/drawer';
 import { NavLink } from 'react-router-dom';
@@ -30,6 +31,14 @@ const TemporaryDrawer = () => {
       onClick={() => drawerStore.toggleDrawer()}
     >
       <List>
+        <ListItem button key="Home">
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
+        </ListItem>
         <ListItem button key="Active orders">
           <ListItemIcon>
             <ListIcon />
