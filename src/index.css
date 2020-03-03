@@ -13,3 +13,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+a,
+a:visited {
+  color: #333333;
+  text-decoration: none;
+}
+
+a.active {
+  color: crimson;
+}

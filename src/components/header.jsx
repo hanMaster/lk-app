@@ -16,6 +16,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { observer } from 'mobx-react';
 import drawerStore from '../store/drawer';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -175,7 +176,7 @@ const AppHeader = () => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Личный кабинет
+            <Link to="/">Личный кабинет</Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

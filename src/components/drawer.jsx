@@ -5,10 +5,10 @@ import List from '@material-ui/core/List';
 import ListIcon from '@material-ui/icons/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import { observer } from 'mobx-react';
 import drawerStore from '../store/drawer';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles({
   list: {
@@ -29,25 +29,17 @@ const TemporaryDrawer = () => {
       onClick={() => drawerStore.toggleDrawer()}
     >
       <List>
-        <ListItem
-          button
-          key="Active orders"
-          onClick={() => drawerStore.selectPage('activeList')}
-        >
+        <ListItem button key="Active orders">
           <ListItemIcon>
             <ListIcon />
           </ListItemIcon>
-          <ListItemText primary="Active orders" />
+          <NavLink to="active">Active orders</NavLink>
         </ListItem>
-        <ListItem
-          button
-          key="Archived orders"
-          onClick={() => drawerStore.selectPage('archiveList')}
-        >
+        <ListItem button key="Archived orders">
           <ListItemIcon>
             <ArchiveIcon />
           </ListItemIcon>
-          <ListItemText primary="Archived orders" />
+          <NavLink to="archive">Archived orders</NavLink>
         </ListItem>
       </List>
     </div>
