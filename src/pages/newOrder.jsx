@@ -13,7 +13,7 @@ const MyTextField = ({ label, ...props }) => {
       label={label}
       helperText={errorText}
       error={!!errorText}
-      style={{ width: '100%' }}
+      style={{ width: '100%', margin: '20px 0' }}
     />
   );
 };
@@ -28,7 +28,7 @@ const validationSchema = yup.object({
 const NewOrder = () => {
   return (
     <div className="container">
-      <h1>New order</h1>
+      <h1 style={{ textAlign: 'center' }}>New order</h1>
       <Formik
         initialValues={{ firstName: 'bob' }}
         validationSchema={validationSchema}
@@ -47,7 +47,37 @@ const NewOrder = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <MyTextField name="firstName" label="first name" />
+            <MyTextField name="bank" label="Beneficiary's bank" />
+            <MyTextField
+              name="bankAddress"
+              label="Beneficiary's bank address"
+            />
+            <MyTextField name="swift" label="SWIFT/BIC" />
+            <MyTextField name="beneficiary" label="Beneficiary" />
+            <MyTextField
+              name="beneficiaryAddress"
+              label="Beneficiary's address"
+            />
+            <MyTextField
+              name="beneficiaryAccountUSD"
+              label="Beneficiary's account USD"
+            />
+            <MyTextField name="bankCorrespondent" label="Bank correspondent" />
+            <MyTextField
+              name="bankCorrAddress"
+              label="Bank correspondent address"
+            />
+            <MyTextField
+              name="bankCorrAccount"
+              label="Bank correspondent account"
+            />
+            <MyTextField
+              name="bankCorrSwift"
+              label="Bank correspondent SWIFT"
+            />
+            <MyTextField name="detailsPayment" label="Details payment" />
+            <MyTextField name="amount" label="Amount" />
+            <MyTextField name="specTerms" label="Special terms" />
 
             <br />
             <Button
