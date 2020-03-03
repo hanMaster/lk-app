@@ -32,3 +32,10 @@ a.active {
 .title {
   color: #ffffff;
 }
+
+.tbl {
+  cursor: pointer;
+  &:hover {
+    background-color: #eeeeee;
+  }
+}

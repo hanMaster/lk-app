@@ -33,13 +33,13 @@ const TemporaryDrawer = () => {
           <ListItemIcon>
             <ListIcon />
           </ListItemIcon>
-          <NavLink to="active">Active orders</NavLink>
+          <NavLink to="/active">Active orders</NavLink>
         </ListItem>
         <ListItem button key="Archived orders">
           <ListItemIcon>
             <ArchiveIcon />
           </ListItemIcon>
-          <NavLink to="archive">Archived orders</NavLink>
+          <NavLink to="/archive">Archived orders</NavLink>
         </ListItem>
       </List>
     </div>
