@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListIcon from '@material-ui/icons/List';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ArchiveIcon from '@material-ui/icons/Archive';
@@ -34,6 +35,12 @@ const TemporaryDrawer = () => {
             <ListIcon />
           </ListItemIcon>
           <NavLink to="/active">Active orders</NavLink>
+        </ListItem>
+        <ListItem button key="new order">
+          <ListItemIcon>
+            <NoteAddIcon />
+          </ListItemIcon>
+          <NavLink to="/create-new-order">Create new order</NavLink>
         </ListItem>
         <ListItem button key="Archived orders">
           <ListItemIcon>
