@@ -7,6 +7,7 @@ import TemporaryDrawer from './components/drawer';
 import Home from './pages/home';
 import ActiveList from './pages/activeList';
 import ArchiveList from './pages/archiveList';
+import Order from './pages/order';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/active" exact component={ActiveList} />
         <Route path="/archive" exact component={ArchiveList} />
-        {/* <Route path='/order/:id' component={Order}/> */}
+        <Route path="/order/:id" component={Order} />
         <Route component={NotFound} />
       </Switch>
     </div>

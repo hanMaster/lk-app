@@ -14,9 +14,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
 import { observer } from 'mobx-react';
 import drawerStore from '../store/drawer';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -81,6 +82,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AppHeader = () => {
+  const history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -176,7 +178,13 @@ const AppHeader = () => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            <Link to="/">Личный кабинет</Link>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => history.push('/')}
+            >
+              Личный кабинет
+            </Button>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
